@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{common :: commonHead}">
+    <title>User List</title>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="mt-5">User List</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">User ID</td>
+            <td th:text="${user.email}">Email</td>
+            <td th:text="${user.role}">Role</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary mt-3" th:href="@{/products}">Back to Product List</a>
+</div>
+
+<div th:insert="~{common :: commonScript}"></div>
+</body>
+</html>
