@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{common :: commonHead}">
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5 text-center">회원가입</h1>
+    <form th:action="@{/register}" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">비밀번호</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">권한</label>
+            <select id="role" name="role" class="form-control" required>
+                <option value="ROLE_USER" selected>일반 사용자</option>
+                <option value="ROLE_ADMIN">관리자</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">가입하기</button>
+    </form>
+</div>
+
+<div th:insert="~{common :: commonScript}"></div>
+</body>
+</html>
