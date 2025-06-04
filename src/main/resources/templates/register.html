@@ -19,8 +19,9 @@
 
         <div class="mb-3">
             <label for="role" class="form-label">권한</label>
-            <select id="role" name="role" class="form-control" required>
-                <option value="ROLE_USER" selected>일반 사용자</option>
+            <select id="role" name="role" class="form-select" required>
+                <option value="" disabled selected hidden>사용자 유형을 선택해주세요.</option>
+                <option value="ROLE_USER">일반 사용자</option>
                 <option value="ROLE_ADMIN">관리자</option>
             </select>
         </div>
@@ -31,6 +32,9 @@
 
         <button type="submit" class="btn btn-primary">가입하기</button>
     </form>
+    <div class="text-center mt-3">
+        <a class="btn btn-outline-secondary" th:href="@{/login}">로그인페이지로 이동</a>
+    </div>
 </div>
 
 <div th:insert="~{common :: commonScript}"></div>

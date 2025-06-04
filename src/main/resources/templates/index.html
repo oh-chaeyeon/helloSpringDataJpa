@@ -9,10 +9,25 @@
 <div class="container">
   <h1 class="mt-5">Product List</h1>
 
-  <a class="btn btn-primary mb-3" th:href="@{/products/new}"
-     sec:authorize="hasRole('ROLE_ADMIN')">
-    Create New Product
-  </a>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+
+    <div>
+      <a class="btn btn-primary" th:href="@{/products/new}"
+         sec:authorize="hasRole('ROLE_ADMIN')">
+        Create New Product
+      </a>
+
+      <a class="btn btn-outline-secondary ms-2"
+         th:href="@{/admin/users}"
+         sec:authorize="hasRole('ROLE_ADMIN')">
+        View Users
+      </a>
+    </div>
+
+    <form th:action="@{/logout}" method="post">
+      <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  </div>
 
   <table class="table table-bordered">
     <thead>
