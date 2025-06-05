@@ -24,9 +24,16 @@
       </a>
     </div>
 
-    <form th:action="@{/logout}" method="post">
-      <button type="submit" class="btn btn-danger">Logout</button>
-    </form>
+    <div class="d-flex align-items-center">
+      <div class="me-3 text-end">
+        <span class="fw-bold" sec:authentication="name"></span>
+        <small class="text-muted d-block">로그인 중</small>
+      </div>
+
+      <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+    </div>
   </div>
 
   <table class="table table-bordered">
