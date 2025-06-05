@@ -2,9 +2,11 @@ package kr.ac.hansung.cse.hellospringdatajpa.service;
 
 import kr.ac.hansung.cse.hellospringdatajpa.entity.User;
 import kr.ac.hansung.cse.hellospringdatajpa.repo.UserRepository;
+import lombok.Getter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@Getter
 @Service
 public class UserService {
 
@@ -18,11 +20,6 @@ public class UserService {
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
-    }
-
-    public void register(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
     }
 
     public void registerUser(String email, String password, String role) {
